@@ -18,7 +18,7 @@ case $ACTION in
         else
             echo "Starting Aether Context Engine..."
             # Use local .venv python instead of 'uv run'
-            nohup ./.venv/bin/python server.py > aether.log 2>&1 &
+            nohup ./.venv/bin/python server.py > logs/startup.log 2>&1 &
             sleep 2
             PID=$(get_aether_pid)
             if [ -n "$PID" ]; then

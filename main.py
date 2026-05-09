@@ -7,6 +7,7 @@ src_path = str(Path(__file__).parent / "src")
 if src_path not in sys.path:
     sys.path.append(src_path)
 
+import aether.core.config
 from aether.core.engine import query_aether
 
 if __name__ == "__main__":

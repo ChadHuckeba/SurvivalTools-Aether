@@ -9,4 +9,10 @@ if src_path not in sys.path:
 if __name__ == "__main__":
     import uvicorn
     # The app is now located in aether.api.app
-    uvicorn.run("aether.api.app:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(
+        "aether.api.app:app", 
+        host="127.0.0.1", 
+        port=8000, 
+        reload=True,
+        reload_excludes=[".venv", "data", "__pycache__", "*.log"]
+    )
