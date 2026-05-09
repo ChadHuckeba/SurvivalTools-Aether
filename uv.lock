@@ -12,6 +12,7 @@ name = "aether-context-engine"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "cairn" },
     { name = "fastapi" },
     { name = "httpx" },
     { name = "llama-index" },
@@ -28,6 +29,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "cairn", git = "https://github.com/ChadHuckeba/SurvivalStack-Cairn.git?rev=v0.1.0" },
     { name = "fastapi", specifier = ">=0.115.0" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "llama-index", specifier = ">=0.14.20" },
@@ -214,6 +216,11 @@ sdist = { url = "https://files.pythonhosted.org/packages/47/5d/54c79aaaa9aa1278a
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b8/5a/f38b49e8b225b0c774e97c9495e52ab9ccdf6d82bde68c513bd736820eb2/banks-2.4.1-py3-none-any.whl", hash = "sha256:40e6d9b6e9b69fb403fa31f2853b3297e4919c1b6f2179b2119d2d4473c6ed13", size = 35032, upload-time = "2026-02-17T11:21:13.236Z" },
 ]
+
+[[package]]
+name = "cairn"
+version = "0.1.0"
+source = { git = "https://github.com/ChadHuckeba/SurvivalStack-Cairn.git?rev=v0.1.0#0ea92b176de17abe51fd8ddb471a2c314a44c522" }
 
 [[package]]
 name = "certifi"

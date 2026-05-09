@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from cairn import Cairn
 from llama_index.core import Settings
 from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
@@ -13,6 +14,13 @@ PROJECT_ROOT = SRC_DIR.parent
 
 env_path = PROJECT_ROOT / ".env"
 load_dotenv(dotenv_path=env_path)
+
+# Initialize Cairn (Logging Authority)
+Cairn.initialize(
+    project_name="aether",
+    level=os.getenv("SS_LOG_LEVEL", "INFO"),
+    log_file=os.getenv("SS_LOG_FILE", "logs/aether.log")
+)
 
 # 2. Key Constants
 # Use AETHER_SAFE_ROOT from env, fallback to parent of project root

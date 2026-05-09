@@ -1,3 +1,4 @@
+import aether.core.config
 import os
 import gc
 import psutil
