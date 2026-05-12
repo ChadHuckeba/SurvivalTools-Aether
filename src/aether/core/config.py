@@ -1,10 +1,14 @@
 import os
+import logging
 from pathlib import Path
 from dotenv import load_dotenv
 from cairn import Cairn
 from llama_index.core import Settings
 from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.embeddings.google_genai import GoogleGenAIEmbedding
+
+# Initialize logger
+logger = logging.getLogger("aether.config")
 
 # 1. Environment and Path Setup
 # Path logic: src/aether/core/config.py -> parent(core) -> parent(aether) -> parent(src) = Root
@@ -34,7 +38,7 @@ REQUIRED_EXTS = [".py", ".md", ".ps1", ".txt", ".json", ".toml", ".yaml", ".yml"
 def init_settings():
     api_key = os.getenv("GEMINI_API_KEY")
     if not api_key:
-        print("Warning: GEMINI_API_KEY not found in environment variables.")
+        logger.warning("GEMINI_API_KEY not found in environment variables.")
 
     # LLM Configuration
     Settings.llm = GoogleGenAI(
