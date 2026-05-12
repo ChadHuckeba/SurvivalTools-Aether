@@ -15,6 +15,15 @@ class ProjectWatcher(FileSystemEventHandler):
         self.debounce_seconds = 5
 
     def on_modified(self, event):
+        self._handle_event(event)
+
+    def on_created(self, event):
+        self._handle_event(event)
+
+    def on_deleted(self, event):
+        self._handle_event(event)
+
+    def _handle_event(self, event):
         if event.is_directory:
             return
         
@@ -23,13 +32,14 @@ class ProjectWatcher(FileSystemEventHandler):
         if ext not in self.required_exts:
             return
 
-        if any(x in event.src_path for x in [".git", "__pycache__", "storage", ".venv"]):
+        # Path exclusion filter
+        if any(x in event.src_path for x in [".git", "__pycache__", "storage", ".venv", ".ruff_cache", ".pytest_cache", ".mypy_cache"]):
             return
         
         current_time = time.time()
         if current_time - self.last_triggered > self.debounce_seconds:
             self.last_triggered = current_time
-            print(f"Auto-sync triggered by: {event.src_path}")
+            print(f"Auto-sync triggered by {event.event_type}: {event.src_path}")
             # Use the provided callback
             asyncio.run_coroutine_threadsafe(self.on_modified_callback(), self.loop)
 
