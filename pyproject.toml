@@ -18,6 +18,7 @@ dependencies = [
     "httpx>=0.28.1",
     "watchfiles>=1.1.1",
     "cairn @ git+https://github.com/ChadHuckeba/SurvivalStack-Cairn.git@v0.1.0",
+    "llama-index-readers-file>=0.6.0",
 ]
 
 [build-system]

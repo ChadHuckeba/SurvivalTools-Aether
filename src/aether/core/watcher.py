@@ -1,10 +1,13 @@
 import time
 import asyncio
 import os
+import logging
 from pathlib import Path
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from typing import Optional, Callable, List
+
+logger = logging.getLogger("aether.watcher")
 
 class ProjectWatcher(FileSystemEventHandler):
     def __init__(self, loop, on_modified_callback: Callable, required_exts: List[str]):
@@ -39,7 +42,7 @@ class ProjectWatcher(FileSystemEventHandler):
         current_time = time.time()
         if current_time - self.last_triggered > self.debounce_seconds:
             self.last_triggered = current_time
-            print(f"Auto-sync triggered by {event.event_type}: {event.src_path}")
+            logger.info(f"Auto-sync triggered by {event.event_type}: {event.src_path}")
             # Use the provided callback
             asyncio.run_coroutine_threadsafe(self.on_modified_callback(), self.loop)
 

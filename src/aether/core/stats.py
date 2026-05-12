@@ -1,9 +1,12 @@
 import os
 import json
+import logging
 from pathlib import Path
 from typing import Dict, Any, List, Optional
 import psutil
 from aether.core.config import get_storage_path
+
+logger = logging.getLogger("aether.stats")
 
 def get_index_metrics(project_name: str, project_path: Optional[str] = None) -> Dict[str, Any]:
     """
@@ -70,7 +73,7 @@ def get_index_metrics(project_name: str, project_path: Optional[str] = None) -> 
         metrics["files"] = sorted(list(set(file_list)))
         
     except Exception as e:
-        print(f"Error calculating metrics for {project_name}: {e}")
+        logger.error(f"Error calculating metrics for {project_name}: {e}")
         metrics["error"] = str(e)
 
     return metrics

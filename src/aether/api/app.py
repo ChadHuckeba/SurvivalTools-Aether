@@ -3,6 +3,7 @@ import os
 import gc
 import psutil
 import asyncio
+import logging
 from typing import Dict, Any, List, Optional
 from contextlib import asynccontextmanager
 
@@ -20,6 +21,7 @@ from aether.core.explorer import browse_directory
 from aether.ui.templates import get_dashboard_html, get_manage_html
 
 # --- Global State ---
+logger = logging.getLogger("aether")
 PROJECTS = load_projects()
 active_project = list(PROJECTS.keys())[0] if PROJECTS else "None"
 sync_status = {"status": "idle", "last_sync": "Never", "auto_sync": True}
@@ -47,7 +49,7 @@ def restart_watcher():
             required_exts=REQUIRED_EXTS
         )
         if observer:
-            print(f"Watching {active_project} at {project_path}")
+            logger.info(f"Watching {active_project} at {project_path}")
 
 async def trigger_auto_sync():
     """Callback for watcher."""
@@ -56,7 +58,7 @@ async def trigger_auto_sync():
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     if not os.getenv("GEMINI_API_KEY"):
-        print("\n" + "!"*60 + "\n CRITICAL ERROR: GEMINI_API_KEY is not set.\n" + "!"*60 + "\n")
+        logger.error("CRITICAL ERROR: GEMINI_API_KEY is not set.")
     
     restart_watcher()
     yield
@@ -80,7 +82,7 @@ async def run_ingestion_task():
         sync_status.update(result)
         _cached_index = None # Invalidate cache
     except Exception as e:
-        print(f"Ingestion error: {e}")
+        logger.error(f"Ingestion error: {e}")
         sync_status["status"] = f"error: {str(e)}"
 
 # --- API Endpoints ---
