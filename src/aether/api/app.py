@@ -21,7 +21,7 @@ from aether.core.explorer import browse_directory
 from aether.ui.templates import get_dashboard_html, get_manage_html
 
 # --- Global State ---
-logger = logging.getLogger("aether")
+logger = logging.getLogger("aether.api")
 PROJECTS = load_projects()
 active_project = list(PROJECTS.keys())[0] if PROJECTS else "None"
 sync_status = {"status": "idle", "last_sync": "Never", "auto_sync": True}
