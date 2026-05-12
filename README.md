@@ -27,7 +27,7 @@ uv sync
 Create a `.env` file in the root:
 ```env
 GEMINI_API_KEY=your_key_here
-AETHER_SAFE_ROOT=/home/chadh/your-projects-root
+AETHER_SAFE_ROOT=/path/to/your-projects-root
 ```
 
 ### 4. Start the Oracle

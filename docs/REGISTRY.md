@@ -10,7 +10,7 @@ The source of truth for all tracked contexts. This file is automatically updated
 ```json
 {
     "ProjectName": "/absolute/path/to/project",
-    "Vanguard": "/home/chadh/survivalstack/Vanguard"
+    "Vanguard": "/absolute/path/to/Vanguard"
 }
 ```
 
