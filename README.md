@@ -1,4 +1,4 @@
-# SurvivalStack | Aether
+# SurvivalStack | Aether®
 ### Real-Time Semantic Code Oracle
 
 Aether is a high-fidelity context engine built on LlamaIndex and Google Gemini. It serves as a real-time "Code Oracle," providing agents with deep architectural intelligence through automated, real-time ingestion of local source code.
