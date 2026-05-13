@@ -1,7 +1,7 @@
 # Aether | Observability & Troubleshooting
 
 ## Overview
-Aether uses a professional telemetry stack to ensure that all background activities are auditable. This system is managed by the **[Cairn](https://github.com/ChadHuckeba/SurvivalStack-Cairn)0 Logging Authority**.
+Aether uses a professional telemetry stack to ensure that all background activities are auditable. This system is managed by the **[Cairn](https://github.com/ChadHuckeba/SurvivalStack-Cairn)® Logging Authority**.
 
 ## 1. Log Locations
 *   **Primary Log:** `logs/aether.log`
