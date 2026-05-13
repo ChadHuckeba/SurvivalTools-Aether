@@ -9,8 +9,8 @@ The source of truth for all tracked contexts. This file is automatically updated
 ### Schema
 ```json
 {
-    "ProjectName": "/absolute/path/to/project",
-    "Vanguard": "/absolute/path/to/Vanguard"
+    "Project1": "/absolute/path/to/project1",
+    "Project2": "/absolute/path/to/project2"
 }
 ```
 

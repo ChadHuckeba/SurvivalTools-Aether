@@ -17,6 +17,9 @@ Cairn prefixes each log line with the project name and the functional module to 
 *   `[aether] [aether.api]` - Server lifecycles and endpoint requests.
 *   `[aether] [aether.stats]` - Logical index reporting.
 
+Example:
+`[INFO] [aether] [aether.watcher] - Watching <ProjectName> at <Path>`
+
 ## 3. Common Troubleshooting
 
 ### `429 RESOURCE_EXHAUSTED` (Google API Quota)
