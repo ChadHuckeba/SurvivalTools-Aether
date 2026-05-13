@@ -25,6 +25,9 @@ Aether does not re-index the entire project on every change. Instead, it uses th
 3.  **Surgical Update:** Only files that have been added or modified since the last sync are embedded via the Google Gemini API.
 4.  **Purge:** Any nodes associated with deleted files are automatically removed from the vector index.
 
+Example Flow:
+`Syncing /path/to/project -> /path/to/aether/data/storage/project`
+
 ## 3. Performance & Lazy Loading
 Aether is optimized for a "Zero-Impact" background presence:
 *   **Sleep Mode:** The vector index is NOT loaded into RAM upon server start.
