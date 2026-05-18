@@ -1,19 +1,3 @@
-# GEMINI GOVERNANCE ARCHITECTURE
-# This file governs the "WHAT" and "WHY" (Policies, Mandates, and Strategic Intent).
-# The "HOW" (Procedural Logic, CLI Flags, and Implementation Steps) is strictly reserved for SKILLS.
-
-## Instruction Hierarchy & Paths
-- **Global Policy (What/Why):** `~/.gemini/GEMINI.md` (Symlinked to `~/core/dotfiles/gemini/GEMINI.md`)
-- **Project Policy (What/Why):** `<project-root>/GEMINI.md`
-- **Global Skills Vault (How):** `~/core/dotfiles/gemini/skills-library/` (Canonical source)
-- **Active Global Skills:** `~/.gemini/skills/` (Symlinks from vault)
-- **Project Skills (How):** `<project-root>/.gemini/skills/` (Project-specific tools)
-
-## Role Distinction
-- **Global File:** Ecosystem-wide mandates, security policies, and governance standards.
-- **Project File:** Localized architectural truth, specialized mandates, and project-specific strategic guardrails.
-- **Skills:** Specialized, on-demand intelligence that provides the technical "How" for specific tools (e.g., gh, git, ruff) to keep the context window lean.
-
 # AETHER: AGENT GOVERNANCE & PROTOCOLS
 
 ## 1.0 SUPREMACY & AUTHORITY
